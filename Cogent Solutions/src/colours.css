@@ -1,0 +1,57 @@
+/* Centralized Color Token Management (On-Brand Red, White, & Black) */
+
+:root {
+  /* Light Theme (Clean White Background - Default) */
+  --background: 0 0% 100%;                  /* Pure White */
+  --background-secondary: 0 0% 98%;         /* Soft Off-White */
+  --foreground: 0 0% 0%;                    /* Pure Pitch Black */
+  --foreground-muted: 0 0% 25%;             /* Charcoal Muted */
+  
+  --primary: 358 66% 49%;                   /* Crimson Red (#CE2A29) */
+  --primary-foreground: 0 0% 100%;          /* White text */
+  
+  --accent: 0 0% 0%;                        /* Pitch Black Accent */
+  --accent-foreground: 0 0% 100%;
+  
+  --card: 0 0% 100%;                        /* Card White */
+  --card-foreground: 0 0% 0%;
+  --card-border: 0 0% 92%;
+  
+  --border: 0 0% 90%;
+  --input: 0 0% 94%;
+  --ring: 358 66% 49%;
+  
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(206, 42, 41, 0.08);  /* Subtle Red border reflections */
+  --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.06);
+  
+  --logo-filter: none;
+}
+
+.dark-mode {
+  /* Dark Theme (Bold Space Black) */
+  --background: 0 0% 0%;                    /* Pure Pitch Black */
+  --background-secondary: 0 0% 4%;
+  --foreground: 0 0% 100%;                  /* Pure White */
+  --foreground-muted: 0 0% 70%;
+  
+  --primary: 358 66% 49%;                   /* Crimson Red */
+  --primary-foreground: 0 0% 100%;
+  
+  --accent: 0 0% 100%;                      /* Soft White Accent */
+  --accent-foreground: 0 0% 0%;
+  
+  --card: 0 0% 5%;
+  --card-foreground: 0 0% 100%;
+  --card-border: 0 0% 12%;
+  
+  --border: 0 0% 10%;
+  --input: 0 0% 10%;
+  --ring: 358 66% 49%;
+  
+  --glass-bg: rgba(0, 0, 0, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+  
+  --logo-filter: none;
+}

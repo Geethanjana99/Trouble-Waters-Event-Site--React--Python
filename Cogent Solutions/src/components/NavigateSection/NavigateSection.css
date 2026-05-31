@@ -1,0 +1,306 @@
+/* Navigate Section Styles */
+
+.navigate-section {
+  position: relative;
+  padding: 8rem 2rem;
+  background-color: hsl(var(--background));
+  overflow: hidden;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+/* Subtle background grid overlay */
+.nav-grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(hsla(var(--primary)/0.03) 1px, transparent 1px);
+  background-size: 30px 30px;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.navigate-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 1.2fr;
+  gap: 5rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Visual Column - Glassmorphic Stacked Challenge Cards */
+.navigate-visual {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+}
+
+/* Visual card backgrounds - Premium futuristic tech panels */
+.challenge-card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.8rem 2rem;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(190%);
+  -webkit-backdrop-filter: blur(20px) saturate(190%);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px; /* High-end sharp corners for industrial supply chain feel */
+  box-shadow: var(--shadow), 0 0 1px hsla(var(--primary)/0.1) inset;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Staggered offset representing logistics route paths */
+.card-costs {
+  transform: translateX(-15px);
+}
+.card-geo {
+  transform: translateX(0px);
+}
+.card-sustain {
+  transform: translateX(15px);
+}
+
+/* Glowing tech bracket accents on card corners */
+.tech-bracket {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 1px solid hsla(var(--primary)/0.4);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+.tech-bracket.tl { top: 6px; left: 6px; border-right: 0; border-bottom: 0; }
+.tech-bracket.tr { top: 6px; right: 6px; border-left: 0; border-bottom: 0; }
+.tech-bracket.bl { bottom: 6px; left: 6px; border-right: 0; border-top: 0; }
+.tech-bracket.br { bottom: 6px; right: 6px; border-left: 0; border-top: 0; }
+
+.challenge-card:hover {
+  border-color: hsla(var(--primary)/0.35);
+  box-shadow: 0 25px 50px -15px hsla(var(--primary)/0.12), 0 0 15px hsla(var(--primary)/0.05);
+}
+
+.challenge-card:hover .tech-bracket {
+  border-color: hsl(var(--primary));
+  width: 14px;
+  height: 14px;
+}
+
+.card-costs:hover { transform: translateX(-15px) translateY(-5px) scale(1.02); }
+.card-geo:hover { transform: translateX(0px) translateY(-5px) scale(1.02); }
+.card-sustain:hover { transform: translateX(15px) translateY(-5px) scale(1.02); }
+
+.challenge-icon-box {
+  width: 52px;
+  height: 52px;
+  min-width: 52px;
+  border-radius: 8px;
+  background: hsla(var(--primary)/0.08);
+  color: hsl(var(--primary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  border: 1px dashed hsla(var(--primary)/0.25);
+}
+
+.challenge-card:hover .challenge-icon-box {
+  background: hsl(var(--primary));
+  color: white;
+  transform: scale(1.05);
+  border-style: solid;
+  border-color: transparent;
+  box-shadow: 0 0 15px hsla(var(--primary)/0.4);
+}
+
+.challenge-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Card status tags */
+.card-status-badge {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: hsl(var(--primary));
+  opacity: 0.85;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.challenge-text h3 {
+  font-family: var(--font-display, inherit);
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: hsl(var(--foreground));
+  margin-bottom: 0.15rem;
+}
+
+.challenge-text p {
+  font-size: 0.88rem;
+  color: hsl(var(--foreground-muted));
+  line-height: 1.4;
+}
+
+/* Telemetry animated mini-sparkline graph */
+.card-telemetry {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1rem;
+  width: 60px;
+  height: 20px;
+  opacity: 0.4;
+  transition: opacity 0.3s;
+}
+
+.challenge-card:hover .card-telemetry {
+  opacity: 0.9;
+}
+
+.sparkline-path {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  animation: drawSparkline 4s infinite linear;
+}
+
+@keyframes drawSparkline {
+  0% { stroke-dashoffset: 200; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@media (max-width: 1024px) {
+  .card-costs, .card-geo, .card-sustain {
+    transform: none !important;
+  }
+  .card-costs:hover, .card-geo:hover, .card-sustain:hover {
+    transform: translateY(-5px) !important;
+  }
+}
+
+/* Copy Column styling */
+.navigate-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.nav-tagline {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 0.4rem 1rem;
+  background: hsla(var(--primary)/0.08);
+  border: 1px solid hsla(var(--primary)/0.25);
+  border-radius: 4px;
+  color: hsl(var(--primary));
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: -0.5rem;
+  text-transform: uppercase;
+}
+
+.navigate-title {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-family: var(--font-display, inherit);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.8px;
+  color: hsl(var(--foreground));
+}
+
+.highlight-text {
+  background: linear-gradient(135deg, hsl(var(--primary)), #ff5e62);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.navigate-paragraphs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.lead-paragraph {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: hsl(var(--foreground));
+  font-weight: 500;
+  opacity: 0.95;
+}
+
+.sub-paragraph {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: hsl(var(--foreground-muted));
+}
+
+/* Button action */
+.navigate-actions {
+  margin-top: 1.5rem;
+}
+
+.navigate-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: #d13239;
+  color: white !important;
+  padding: 0.75rem 1.8rem;
+  border-radius: 100px;
+  font-weight: 800;
+  font-size: 0.9rem;
+  text-decoration: none;
+  box-shadow: 0 6px 15px hsla(358, 66%, 49%, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s;
+  overflow: hidden;
+}
+
+.navigate-cta-btn:hover {
+  transform: translateY(-3px);
+  background: #b52229;
+  box-shadow: 0 10px 22px hsla(358, 66%, 49%, 0.45);
+}
+
+.arrow-icon {
+  transition: transform 0.3s ease;
+}
+
+.navigate-cta-btn:hover .arrow-icon {
+  transform: translateX(4px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .navigate-container {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+  
+  .navigate-visual {
+    order: 2;
+  }
+  
+  .navigate-content {
+    order: 1;
+    text-align: center;
+  }
+  
+  .nav-tagline {
+    align-self: center;
+  }
+  
+  .navigate-actions {
+    justify-content: center;
+    display: flex;
+  }
+}

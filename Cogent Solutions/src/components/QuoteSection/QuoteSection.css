@@ -1,0 +1,270 @@
+.quote-section {
+  position: relative;
+  padding: 10rem 2rem;
+  background-color: hsla(var(--primary)/0.035); /* Soft, reduced opacity light red background */
+  overflow: hidden;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+/* Background Cyber Grid Backdrop */
+.quote-cyber-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(hsla(var(--primary)/0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.quote-glow-bg {
+  position: absolute;
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, hsla(var(--primary)/0.045) 0%, transparent 70%);
+  top: 50%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.quote-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 5rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Left Side: Futuristic Floating AI Robot visual */
+.quote-visual-arena {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Dynamic Orbit Tech Rings */
+.arena-tech-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed hsla(var(--primary)/0.15);
+  pointer-events: none;
+}
+
+.ring-outer {
+  width: 320px;
+  height: 320px;
+  animation: spinClockwise 45s linear infinite;
+}
+
+.ring-inner {
+  width: 240px;
+  height: 240px;
+  border-style: dotted;
+  border-color: hsla(var(--primary)/0.25);
+  animation: spinCounterClockwise 35s linear infinite;
+}
+
+@keyframes spinClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spinCounterClockwise {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+/* Floating Robot Image Box */
+.robot-wrapper {
+  position: relative;
+  z-index: 5;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-robo {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 15px 30px rgba(0,0,0,0.25));
+}
+
+.animate-float-robot {
+  animation: floatRobot 6s infinite ease-in-out;
+}
+
+@keyframes floatRobot {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-18px) rotate(1.5deg);
+  }
+}
+
+/* Dynamic Glowing Laser Shadow beneath the floating robot */
+.robot-laser-shadow {
+  position: absolute;
+  bottom: 45px;
+  width: 120px;
+  height: 8px;
+  background: radial-gradient(ellipse, hsla(var(--primary)/0.6) 0%, transparent 80%);
+  border-radius: 50%;
+  filter: blur(2px);
+  z-index: 2;
+  animation: shadowPulse 6s infinite ease-in-out;
+}
+
+@keyframes shadowPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(0.7);
+    opacity: 0.4;
+  }
+}
+
+
+/* Right Side: High-end Editorial Quote */
+.quote-panel {
+  position: relative;
+  padding: 4.5rem 4rem;
+  background: var(--glass-bg);
+  backdrop-filter: blur(25px) saturate(190%);
+  -webkit-backdrop-filter: blur(25px) saturate(190%);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px; /* Sharp editorial corners matching NavigateSection cards */
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.8rem;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.quote-panel:hover {
+  border-color: hsla(var(--primary)/0.3);
+  box-shadow: 0 30px 60px -20px hsla(var(--primary)/0.12), var(--shadow);
+}
+
+/* Elegant Tag Badge - Matches STRATEGIC OUTLOOK style */
+.quote-tag-badge {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background: hsla(var(--primary)/0.08);
+  border: 1px solid hsla(var(--primary)/0.25);
+  border-radius: 4px;
+  color: hsl(var(--primary));
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: -0.5rem; /* Cozy gap, matching tagline near heading */
+  text-transform: uppercase;
+}
+
+/* Quote Typography - Premium Editorial Design */
+.quote-text {
+  font-family: var(--font-display, inherit);
+  font-style: italic; /* Dynamic and professional italic quotes */
+  font-size: clamp(1.25rem, 2.6vw, 1.8rem);
+  font-weight: 600;
+  line-height: 1.55;
+  color: hsl(var(--foreground));
+  letter-spacing: -0.5px;
+  position: relative;
+}
+
+/* Decorative Accent Bar */
+.quote-accent-bar {
+  width: 60px;
+  height: 3px;
+  background: hsl(var(--primary));
+  border-radius: 50px;
+}
+
+/* Corner Bracket Accents */
+.quote-bracket {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 1px solid hsla(var(--primary)/0.3);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+.quote-bracket.tl { top: 6px; left: 6px; border-right: 0; border-bottom: 0; }
+.quote-bracket.tr { top: 6px; right: 6px; border-left: 0; border-bottom: 0; }
+.quote-bracket.bl { bottom: 6px; left: 6px; border-right: 0; border-top: 0; }
+.quote-bracket.br { bottom: 6px; right: 6px; border-left: 0; border-top: 0; }
+
+.quote-panel:hover .quote-bracket {
+  border-color: hsl(var(--primary));
+  width: 14px;
+  height: 14px;
+}
+
+
+/* Responsive Configurations */
+@media (max-width: 1024px) {
+  .quote-container {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  
+  .quote-visual-arena {
+    height: 350px;
+    order: 2; /* Put robot under text card on mobile */
+  }
+  
+  .quote-panel {
+    order: 1; /* Put text card on top on mobile */
+    padding: 3.5rem 2.2rem;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .quote-tag-badge {
+    align-self: center;
+  }
+  
+  .quote-accent-bar {
+    margin: 0 auto;
+  }
+  
+  .robot-wrapper {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .ring-outer {
+    width: 260px;
+    height: 260px;
+  }
+  
+  .ring-inner {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .quote-section {
+    padding: 6rem 1.5rem;
+  }
+}

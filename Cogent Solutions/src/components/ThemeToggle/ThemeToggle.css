@@ -1,0 +1,20 @@
+.theme-toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  background-color: hsl(var(--foreground) / 0.05);
+  color: hsl(var(--foreground));
+  width: 40px;
+  height: 40px;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.theme-toggle-btn:hover {
+  background-color: hsl(var(--foreground) / 0.1);
+  transform: scale(1.05);
+}

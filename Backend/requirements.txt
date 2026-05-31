@@ -1,0 +1,15 @@
+# ── Core Framework ────────────────────────────────────────────────────────────
+fastapi==0.115.5
+uvicorn[standard]==0.32.1
+python-dotenv==1.0.1
+
+# pydantic v2 latest — pydantic-core 2.47+ has pre-built wheels for Python 3.14
+pydantic[email]>=2.10
+
+# ── RAG / NLP ─────────────────────────────────────────────────────────────────
+# scikit-learn 1.8.0 has a pre-built wheel for Python 3.14
+scikit-learn>=1.8.0
+numpy>=2.0
+
+# ── LLM ───────────────────────────────────────────────────────────────────────
+google-genai  # New official Gemini SDK (replaces deprecated google-generativeai)

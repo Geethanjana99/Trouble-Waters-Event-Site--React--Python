@@ -1,0 +1,418 @@
+/* SCM Cargo Vertical Alternating Shipping Lane Timeline Styles */
+
+.agenda-section {
+  position: relative;
+  padding: 10rem 2rem;
+  background-color: hsl(var(--background-secondary, var(--background)));
+  border-bottom: 1px solid var(--glass-border);
+  overflow: hidden;
+}
+
+/* Sea routes radial grid background */
+.agenda-sea-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle, hsla(var(--primary)/0.035) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.agenda-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.voyage-tag {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background: hsla(var(--primary)/0.08);
+  border: 1px solid hsla(var(--primary)/0.25);
+  border-radius: 4px;
+  color: hsl(var(--primary));
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: -0.25rem;
+  text-transform: uppercase;
+}
+
+/* Vertical Timeline Container */
+.vertical-shipping-lane-container {
+  position: relative;
+  width: 100%;
+  margin-top: 6rem;
+  padding: 2rem 0;
+}
+
+/* Central Shipping Channel Line (The Middle Line) */
+.vertical-shipping-channel {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  background-image: linear-gradient(to bottom, 
+    hsla(var(--primary)/0.2) 0%, 
+    hsl(var(--primary)) 20%, 
+    hsl(var(--primary)) 80%, 
+    hsla(var(--primary)/0.2) 100%
+  );
+  background-size: 1px 15px; /* Dotted channel visual */
+  z-index: 1;
+}
+
+/* The Vertical SCM Floating Vessel (Slides vertically!) */
+.floating-vertical-vessel {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75px;
+  height: 50px;
+  z-index: 5;
+  transition: top 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vessel-vertical-img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3));
+  animation: vesselSwing 4s infinite ease-in-out;
+}
+
+@keyframes vesselSwing {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-4px) rotate(-2deg); }
+}
+
+/* Red Engine Glow beneath the SCM Vessel */
+.vessel-engine-glow-vertical {
+  position: absolute;
+  bottom: -4px;
+  width: 25px;
+  height: 6px;
+  background: radial-gradient(ellipse, hsl(var(--primary)) 0%, transparent 85%);
+  filter: blur(1px);
+  animation: enginePulseVertical 1s infinite alternate ease-in-out;
+}
+
+@keyframes enginePulseVertical {
+  0% { transform: scaleX(0.8); opacity: 0.6; }
+  100% { transform: scaleX(1.2); opacity: 1; }
+}
+
+/* Vertical Agenda Flow of rows */
+.vertical-agenda-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem; /* Extremely tight compact gap */
+}
+
+/* Row Grid */
+.vertical-agenda-row {
+  display: grid;
+  grid-template-columns: 1fr 100px 1fr;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+
+.agenda-column {
+  display: flex;
+  width: 100%;
+}
+
+.column-left {
+  justify-content: flex-end;
+}
+
+.column-center {
+  justify-content: center;
+}
+
+.column-right {
+  justify-content: flex-start;
+}
+
+/* Buoy Node Point (Middle Buoy) */
+.port-buoy-vertical {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.port-buoy-vertical .buoy-core {
+  width: 12px;
+  height: 12px;
+  background-color: hsl(var(--background));
+  border: 2px solid hsla(var(--primary)/0.5);
+  border-radius: 50%;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.port-buoy-vertical .buoy-sonar-wave {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border: 1px solid hsla(var(--primary)/0.2);
+  border-radius: 50%;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+/* Active Buoy styling */
+.buoy-active .buoy-core {
+  background-color: hsl(var(--primary));
+  border-color: #fff;
+  transform: scale(1.35);
+  box-shadow: 0 0 10px hsl(var(--primary));
+}
+
+.buoy-active .buoy-sonar-wave {
+  opacity: 1;
+  animation: sonarPulseBuoy 1.5s infinite ease-out;
+}
+
+@keyframes sonarPulseBuoy {
+  0% { transform: scale(0.6); opacity: 1; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* Tech Manifest Panel Cards */
+.tech-manifest-panel {
+  width: 88%;
+  padding: 1rem 1.5rem;
+  background: var(--glass-bg);
+  backdrop-filter: blur(25px) saturate(190%);
+  -webkit-backdrop-filter: blur(25px) saturate(190%);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px; /* Industrial theme */
+  box-shadow: var(--shadow);
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vertical-agenda-row:hover .tech-manifest-panel {
+  border-color: hsla(var(--primary)/0.3);
+  box-shadow: 0 20px 40px -10px hsla(var(--primary)/0.08), var(--shadow);
+}
+
+.vertical-agenda-row.row-active .tech-manifest-panel {
+  border-color: hsla(var(--primary)/0.35);
+  background-color: hsl(var(--background) / 0.95);
+  box-shadow: 0 25px 50px -15px hsla(var(--primary)/0.12), var(--shadow);
+}
+
+/* Alignments */
+.text-right-align {
+  text-align: right;
+}
+
+.text-left-align {
+  text-align: left;
+}
+
+.manifest-time {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: hsl(var(--primary));
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.manifest-title {
+  font-family: var(--font-display, inherit);
+  font-weight: 800;
+  font-size: 1.22rem;
+  line-height: 1.35;
+  color: hsl(var(--foreground));
+  margin-bottom: 0.8rem;
+  transition: color 0.3s;
+}
+
+.vertical-agenda-row:hover .manifest-title {
+  color: hsl(var(--primary));
+}
+
+.manifest-desc {
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: hsl(var(--foreground-muted));
+  opacity: 0.9;
+}
+
+/* Speakers Panel Box inside Card */
+.manifest-speakers-box {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px dashed hsla(var(--primary)/0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.speakers-label {
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: hsl(var(--primary));
+}
+
+.speakers-names {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: hsl(var(--foreground-muted));
+  line-height: 1.4;
+}
+
+/* Cyber corner brackets */
+.panel-edge {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 1px solid hsla(var(--primary)/0.25);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+.panel-edge.tl { top: 6px; left: 6px; border-right: 0; border-bottom: 0; }
+.panel-edge.tr { top: 6px; right: 6px; border-left: 0; border-bottom: 0; }
+.panel-edge.bl { bottom: 6px; left: 6px; border-right: 0; border-top: 0; }
+.panel-edge.br { bottom: 6px; right: 6px; border-left: 0; border-top: 0; }
+
+.vertical-agenda-row:hover .panel-edge,
+.vertical-agenda-row.row-active .panel-edge {
+  border-color: hsl(var(--primary));
+  width: 14px;
+  height: 14px;
+}
+
+
+/* High-tech filter tabs container */
+.agenda-filters-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin: 3.5rem auto 1.5rem auto;
+  max-width: 900px;
+  position: relative;
+  z-index: 10;
+}
+
+.agenda-filter-btn {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: hsl(var(--foreground-muted));
+  padding: 0.65rem 1.4rem;
+  border-radius: 100px; /* Modern fully-rounded corner theme */
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.agenda-filter-btn:hover {
+  border-color: hsl(var(--primary) / 0.4);
+  color: hsl(var(--foreground));
+  transform: translateY(-1px);
+}
+
+.agenda-filter-btn.filter-active {
+  background-color: hsl(var(--primary));
+  border-color: transparent;
+  color: #ffffff !important;
+  box-shadow: 0 6px 15px hsla(358, 66%, 49%, 0.25);
+}
+
+.agenda-filter-btn .btn-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.08);
+  color: inherit;
+  padding: 0.15rem 0.55rem;
+  border-radius: 50px;
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+
+.agenda-filter-btn.filter-active .btn-badge {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive Configurations */
+@media (max-width: 1024px) {
+  /* Move the vertical timeline line to the left on mobile/tablet */
+  .vertical-shipping-channel {
+    left: 20px;
+    transform: none;
+  }
+  
+  .floating-vertical-vessel {
+    left: 20px;
+    width: 60px;
+    height: 40px;
+  }
+  
+  .vertical-agenda-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+    padding-left: 3rem; /* Space for timeline and ship */
+    position: relative;
+    width: 100%;
+  }
+  
+  .column-center {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    z-index: 10;
+  }
+  
+  .column-left, .column-right {
+    display: block;
+    width: 100%;
+  }
+  
+  /* Make sure empty columns do not render */
+  .column-left:empty, .column-right:empty {
+    display: none;
+  }
+  
+  /* Fallback: Render all cards on the right column */
+  .vertical-agenda-row .tech-manifest-panel {
+    width: 100% !important;
+    text-align: left !important;
+    padding: 1.8rem 1.6rem;
+  }
+  
+  .agenda-section {
+    padding: 6rem 1.5rem;
+  }
+}
