@@ -1,9 +1,9 @@
 # Full-Stack Intern Assessment
 
 ## 1. Live Gateways
-- **Frontend Live URL**: `[Insert Vercel/Netlify URL here]`
-- **Backend API Endpoint**: `[Insert Render/Hugging Face URL here]`
-- **Public GitHub Repository**: `[Insert GitHub Repo URL here]`
+- **Frontend Live URL**: "https://trouble-waters.vercel.app/"
+- **Backend API Endpoint**: "https://trouble-waters-event-site-react-python.onrender.com/"
+- **Public GitHub Repository**: "https://github.com/Geethanjana99/Trouble-Waters-Event-Site--React--Python.git"
 
 *(Note: Please ensure the frontend fetch URL in `Cogent Solutions/src/components/RegisterForm/RegisterForm.jsx` is updated to point to your live backend URL before final deployment!)*
 

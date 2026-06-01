@@ -31,9 +31,11 @@ class Settings:
 
     # ── Server ────────────────────────────────────────────────────────────────
     ALLOWED_ORIGINS: list[str] = [
-        "http://localhost:5173",   # Vite dev server
-        "http://localhost:3000",   # Create React App fallback
-        "http://127.0.0.1:5173",
+        origin.strip() for origin in os.getenv(
+            "ALLOWED_ORIGINS",
+            "http://localhost:5173,http://localhost:3000,http://127.0.0.1:5173,https://trouble-waters.vercel.app"
+        ).split(",")
+        if origin.strip()
     ]
 
     # ── LLM Behaviour ─────────────────────────────────────────────────────────
