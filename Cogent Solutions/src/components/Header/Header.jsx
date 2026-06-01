@@ -20,7 +20,7 @@ export default function Header() {
 
   // Dynamic Section Scrollspy
   useEffect(() => {
-    const sections = ['overview', 'about', 'speakers', 'agenda', 'register'];
+    const sections = ['overview', 'reasons', 'speakers', 'agenda', 'register'];
     const handleScrollspy = () => {
       const scrollPosition = window.scrollY + 100;
 
@@ -68,40 +68,14 @@ export default function Header() {
             </a>
           </div>
 
-          {/* About Section Link */}
+          {/* Reasons Section Link */}
           <div className="nav-item-wrapper">
             <a
-              href="#about"
-              className={`nav-link ${activeSection === 'about' ? 'active' : ''}`}
+              href="#reasons"
+              className={`nav-link ${activeSection === 'reasons' ? 'active' : ''}`}
             >
-              Takeaways
+              Why Attend
             </a>
-          </div>
-
-          {/* SCM Sub-Tracks Dropdown */}
-          <div className="nav-item-wrapper">
-            <span className="nav-link dropdown-trigger">
-              SCM Tracks
-              <svg className="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="1 1 5 5 9 1" />
-              </svg>
-            </span>
-
-            {/* Slide-Up Mega Dropdown Submenu */}
-            <div className="glass-submenu">
-              <a href="#about" className="submenu-item">
-                <span className="submenu-item-title">AI & Logistics Strategy</span>
-                <span className="submenu-item-desc">Real-time demand forecasting and routing systems.</span>
-              </a>
-              <a href="#about" className="submenu-item">
-                <span className="submenu-item-title">Autonomous Warehousing</span>
-                <span className="submenu-item-desc">Fulfillment optimizations and automated space allocation.</span>
-              </a>
-              <a href="#about" className="submenu-item">
-                <span className="submenu-item-title">Cloud Deployment Best Practices</span>
-                <span className="submenu-item-desc">High-ROI Oracle SCM migration strategies.</span>
-              </a>
-            </div>
           </div>
 
           {/* Speakers Section Link */}
@@ -121,6 +95,24 @@ export default function Header() {
               className={`nav-link ${activeSection === 'agenda' ? 'active' : ''}`}
             >
               Agenda
+            </a>
+          </div>
+
+          {/* Register Button */}
+          <div className="nav-item-wrapper" style={{ marginLeft: '1rem' }}>
+            <a
+              href="#register"
+              className={`nav-link register-btn-nav ${activeSection === 'register' ? 'active' : ''}`}
+              style={{
+                backgroundColor: 'hsl(var(--primary))',
+                color: 'hsl(var(--primary-foreground))',
+                padding: '0.35rem 0.9rem',
+                borderRadius: '50px',
+                fontWeight: '600',
+                fontSize: '0.78rem'
+              }}
+            >
+              Register Now
             </a>
           </div>
           
@@ -174,10 +166,10 @@ export default function Header() {
             padding: '2rem'
           }}
         >
-          {['Overview', 'About', 'Speakers', 'Agenda'].map((item) => (
+          {[{name: 'Overview', id: 'overview'}, {name: 'Why Attend', id: 'reasons'}, {name: 'Speakers', id: 'speakers'}, {name: 'Agenda', id: 'agenda'}, {name: 'Register', id: 'register'}].map((item) => (
             <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
+              key={item.id}
+              href={`#${item.id}`}
               onClick={() => setMobileMenuOpen(false)}
               style={{
                 fontFamily: 'var(--font-display)',
@@ -186,7 +178,7 @@ export default function Header() {
                 color: 'hsl(var(--foreground))'
               }}
             >
-              {item}
+              {item.name}
             </a>
           ))}
         </div>

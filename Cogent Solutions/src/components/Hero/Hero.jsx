@@ -114,7 +114,7 @@ export default function Hero() {
             <img src={planeImg} alt="Aeroplane" className="img-aeroplane" />
           </div>
 
-          <div className="main-ship-container animate-float-main">
+          <div className="main-ship-container">
             <img src={shipImg} alt="Main Ship Logistics" className="img-main-ship" />
           </div>
           

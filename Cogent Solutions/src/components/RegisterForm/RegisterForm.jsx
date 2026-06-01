@@ -4,7 +4,7 @@ import partnerLogoImg from '../../assets/patner-logo.png';
 import waveImg from '../../assets/wave.jpg';
 import './RegisterForm.css';
 
-const API_BASE = 'http://localhost:8000/api';
+const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api';
 
 export default function RegisterForm() {
   const [step, setStep] = useState(1);
