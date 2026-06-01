@@ -4,7 +4,13 @@ import partnerLogoImg from '../../assets/patner-logo.png';
 import waveImg from '../../assets/wave.jpg';
 import './RegisterForm.css';
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api';
+let API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api';
+// Remove trailing slash if present
+API_BASE = API_BASE.replace(/\/+$/, '');
+// Ensure it ends with /api
+if (!API_BASE.endsWith('/api')) {
+  API_BASE = `${API_BASE}/api`;
+}
 
 export default function RegisterForm() {
   const [step, setStep] = useState(1);
