@@ -145,8 +145,15 @@
   font-family: var(--font-display);
   font-weight: 900;
   line-height: 1.1;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   letter-spacing: -1px;
+}
+.hero-description {
+  font-size: clamp(1rem, 1.1vw, 1.15rem);
+  line-height: 1.6;
+  color: hsl(var(--foreground-muted));
+  margin-bottom: 2rem;
+  max-width: 600px;
 }
 .title-light {
   color: hsl(var(--foreground));

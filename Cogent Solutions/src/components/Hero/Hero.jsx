@@ -64,6 +64,10 @@ export default function Hero() {
             </span>
           </h1>
 
+          <p className="hero-description">
+            Discover how next-generation artificial intelligence is transforming logistics resilience, efficiency, and real-time supply chain operations.
+          </p>
+
           {/* Minimalist Details Box */}
           <div className="event-info-strip">
             <div className="info-block">
